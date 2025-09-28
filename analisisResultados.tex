@@ -1,4 +1,4 @@
-\documentclass[10pt,twocolumn]{article}
+\documentclass[10pt]{article}
 \usepackage[margin=2cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{float}
@@ -8,170 +8,222 @@
 
 \section*{Análisis Comparativo de Algoritmos Evolutivos}
 
-En este apartado se presentan los resultados obtenidos al evaluar diferentes algoritmos (Firefly, ACOR, Algoritmo Genético Diploide y PSO con división de población) sobre un conjunto de benchmarks dinámicos. Los resultados se analizaron considerando cuatro dimensiones principales: \textbf{calidad}, \textbf{robustez}, \textbf{adaptabilidad} y \textbf{coste computacional}.
+En este apartado se presentan los resultados obtenidos al evaluar diferentes algoritmos (Firefly, ACOR, Algoritmo Genético Diploide y PSO con división de población) sobre un conjunto de benchmarks dinámicos. Los resultados se analizaron considerando calidad y adaptabilidad.
 
 \subsection*{Métricas de Evaluación}
 
-Para caracterizar el desempeño de los algoritmos se utilizaron las siguientes métricas, seleccionadas por su relevancia en la comparación de métodos metaheurísticos en entornos dinámicos:
+El rendimiento de los algoritmos se midió a través de métricas clave como lo son \emph{calidad} y \emph{adaptabilidad}, seleccionadas por su relevancia en la comparación de algoritmos evolutivos en entornos dinámicos. Diversos autores coinciden en que estas métricas permiten analizar no sólo el desempeño estático, sino también la capacidad de recuperación ante cambios.
 
-\begin{itemize}
-    \item \textbf{Calidad}: medida a través de los valores \textit{Avg Best Pre-Change}, \textit{Avg Avg Pre-Change} y \textit{Avg Worst Pre-Change}. 
-    Estas métricas permiten observar el rango de soluciones alcanzadas (mejor, promedio y peor caso), ofreciendo una visión integral del nivel de desempeño que un algoritmo puede garantizar antes de que ocurra un cambio en el entorno.
-    
-    \item \textbf{Robustez}: evaluada mediante la desviación estándar \textit{Avg Std Pre-Change}. 
-    Una baja desviación estándar refleja que el algoritmo produce resultados consistentes entre diferentes ejecuciones, lo que es esencial en problemas donde la estabilidad es tan importante como la calidad.
-    
-    \item \textbf{Adaptabilidad}: cuantificada mediante las iteraciones promedio de recuperación \textit{Avg Recovery Iter}. 
-    Esta métrica mide la rapidez con la que el algoritmo puede reajustarse tras un cambio en el entorno, capturando su capacidad de adaptación en escenarios dinámicos.
-    
-    \item \textbf{Coste}: representado por el tiempo promedio de ejecución en segundos (\textit{Avg Time (s)}). 
-    Esta medida asegura que la comparación no solo contemple la calidad y adaptabilidad de las soluciones, sino también la eficiencia computacional, aspecto clave en aplicaciones prácticas donde los recursos de tiempo y cómputo son limitados.
-\end{itemize}
+\textbf{Calidad}: El desempeño se cuantificó mediante las métricas Avg Best Pre-Change, Avg Avg Pre-Change y Avg Worst Pre-Change, que representan respectivamente la mejor, promedio y peor solución encontrada antes de la modificación del entorno. En entornos dinámicos, la calidad es un indicador esencial para evaluar la robustez de un algoritmo, pues refleja su capacidad para mantenerse cercano al óptimo incluso frente a perturbaciones \cite{ahmed2024adaptive}. Además, la literatura en optimización evolutiva dinámica reconoce que las medidas de desempeño basadas en mejores, peores y promedios de fitness son criterios habituales de evaluación en benchmarks dinámicos \cite{nguyen2012survey,weicker2003performance}.
+
+\textbf{Adaptabilidad}: La velocidad de adaptación se midió con la métrica Avg Recovery Iter, que indica el número promedio de iteraciones que tarda el algoritmo en recuperar un nivel competitivo de desempeño tras un cambio ambiental. Un valor bajo en esta métrica sugiere una alta capacidad de respuesta. En este sentido, Ahmed \cite{ahmed2024adaptive} propone un marco adaptativo basado en detección y reajuste dinámico, mientras que Nguyen et al. \cite{nguyen2013kd} y Weicker \cite{weicker2003performance} destacan que un algoritmo competitivo no sólo debe encontrar soluciones de calidad, sino también reaccionar rápidamente a los cambios en el entorno.
+
+Estas métricas combinadas permiten una evaluación integral del desempeño algorítmico: mientras que la calidad garantiza soluciones eficaces, la adaptabilidad mide la capacidad de respuesta frente al dinamismo del entorno, facilitando comparaciones más completas entre distintos enfoques evolutivos en problemas no estacionarios.
+
+
 \subsection*{Resultados}
 
 A continuación se muestra un extracto de los resultados obtenidos para cada algoritmo. 
 
 % --- FIREfly ---
+\subsubsection*{Firefly (30\% reubicación de población)}
 \begin{table}[H]
 \centering
-\caption{Firefly (30\% reubicación de población): resultados promedios por benchmark.}
+\caption{Resultados del algoritmo FireFly (30\% reubicación de población en cambio).}
 \label{tab:firefly}
 \scriptsize
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{Algoritmo} & \textbf{Benchmark} & \textbf{Best} & \textbf{Avg} & \textbf{Worst} & \textbf{Std} & \textbf{Recov. Iter} & \textbf{Time (s)} \\
+\textbf{Benchmark} & \textbf{Avg Best Pre-Change} & \textbf{Avg Avg Pre-Change} & \textbf{Avg Worst Pre-Change} & \textbf{Avg Std Pre-Change} & \textbf{Avg Recovery Iter} & \textbf{Avg Time (s)} \\
 \midrule
-Firefly & 1 & 4.33 & 4.65 & 4.94 & 0.30 & 6 & 21.70 \\
-Firefly & 2 & 0.00 & 0.00 & 0.01 & 0.00 & 2 & 142.55 \\
-Firefly & 3 & 1.95 & 10.80 & 19.56 & 7.10 & 7 & 44.18 \\
-Firefly & 4 & 0.01 & 0.35 & 1.57 & 0.53 & 3 & 8.69 \\
-Firefly & 5 & -307.25 & -210.96 & -124.78 & 56.98 & 9 & 16.24 \\
+1 & 4.326799 & 4.651963 & 4.936076 & 0.303534 & 6.00 & 21.6962 \\
+2 & 0.000020 & 0.001634 & 0.008346 & 0.002818 & 2.00 & 142.5533 \\
+3 & 1.949308 & 10.796254 & 19.559685 & 7.103091 & 7.00 & 44.1845 \\
+4 & 0.009526 & 0.350470 & 1.574578 & 0.533295 & 3.00 & 8.6900 \\
+5 & -307.245057 & -210.955552 & -124.780520 & 56.984993 & 9.00 & 16.2412 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-\subsubsection*{Firefly (30\% reubicación de población)}
-\textbf{Resumen global.} Desempeño aceptable en \textit{B1} y \textit{B4}; inestable en \textit{B3} y especialmente sensible en \textit{B5}. Coste moderado salvo en \textit{B2}. \\
-\textbf{B1:} Calidad media (Best=4.33, Avg=4.65) con variabilidad moderada (Std=0.30); adaptabilidad intermedia (Rec=6) y tiempo razonable (21.7 s). \\
-\textbf{B2:} Problema “fácil” para el método (valores $\approx 0$) y buena adaptabilidad (Rec=2), pero \textbf{muy costoso} (142.6 s), lo que sugiere sobrecosto computacional. \\
-\textbf{B3:} Calidad pobre (Avg=10.80) y \textbf{alta variabilidad} (Std=7.10); recuperación lenta (Rec=7) $\rightarrow$ poca robustez ante cambios. \\
-\textbf{B4:} Calidad aceptable (Avg=0.35) con dispersión notable (Std=0.53); recuperación rápida (Rec=3) y \textbf{bajo coste} (8.69 s). \\
-\textbf{B5:} Valores muy negativos (Avg=-210.96) con \textbf{gran dispersión} (Std=56.98) y la peor adaptabilidad (Rec=9); tiempo razonable (16.24 s). \\
-\textbf{Lectura:} Firefly es competitivo cuando la estructura del problema favorece la exploración guiada (\textit{B1}, \textit{B4}); en escenarios con paisajes complejos/dinámicos (\textit{B3}, \textit{B5}) pierde estabilidad y tarda en recuperarse. \textbf{Cuello de botella:} \textit{B2} por tiempo.
+En el benchmark 1, el algoritmo FireFly mostró un mejor valor promedio previo al cambio de 4.326799 y un peor valor de 4.936076. La desviación estándar fue relativamente baja (0.303534) y el algoritmo necesitó 6 iteraciones para recuperarse tras los cambios en el entorno.
 
+En el benchmark 2 alcanzó valores muy cercanos a cero en todas las métricas de calidad (con un mejor valor de 0.000020 y un peor valor de 0.008346). La recuperación fue rápida (2 iteraciones).
+
+En el benchmark 3, el mejor valor alcanzado fue de 1.949308, mientras que el peor ascendió a 19.559685. La desviación estándar fue alta (7.103091), lo que indica cambios relevantes entre ejecuciones. El algoritmo tardó 7 iteraciones en recuperarse.
+
+El benchmark 4 mostró un mejor valor promedio de 0.009526 y el peor de 1.574578, con una desviación estándar de 0.533295,  la recuperación fue relativamente rápida (3 iteraciones).
+
+Por último, en el benchmark 5 se observaron valores negativos, con un mejor resultado de -307.245057 y un peor de -124.780520 con una desviación estándar de 56.984993, lo que muestra alta dispersión en los resultados, la recuperación requirió 9 iteraciones.
 
 % --- ACOR ---
+\subsubsection*{ACOR (15\% reubicación para soluciones cercanas)}
 \begin{table}[H]
 \centering
-\caption{ACOR (15\% reubicación de población): resultados promedios por benchmark.}
+\caption{Resultados del algoritmo ACOR (15\% reubicación de población para soluciones cercanas).}
 \label{tab:acor}
 \scriptsize
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{Algoritmo} & \textbf{Benchmark} & \textbf{Best} & \textbf{Avg} & \textbf{Worst} & \textbf{Std} & \textbf{Recov. Iter} & \textbf{Time (s)} \\
+\textbf{Benchmark} & \textbf{Avg Best Pre-Change} & \textbf{Avg Avg Pre-Change} & \textbf{Avg Worst Pre-Change} & \textbf{Avg Std Pre-Change} & \textbf{Avg Recovery Iter} & \textbf{Avg Time (s)} \\
 \midrule
-ACOR & 1 & 4.32 & 4.64 & 4.94 & 0.32 & 4 & 21.43 \\
-ACOR & 2 & 0.00 & 0.00 & 0.00 & 0.00 & 2 & 229.78 \\
-ACOR & 3 & 0.62 & 7.75 & 16.02 & 6.29 & 5 & 45.06 \\
-ACOR & 4 & 0.21 & 1.37 & 4.14 & 1.24 & 4 & 8.21 \\
-ACOR & 5 & -372.73 & -283.08 & -196.89 & 56.53 & 12 & 16.47 \\
+1 & 4.322080 & 4.636836 & 4.936076 & 0.315635 & 4.00 & 21.4260 \\
+2 & 0.000003 & 0.000812 & 0.004291 & 0.001482 & 2.00 & 229.7759 \\
+3 & 0.615696 & 7.753642 & 16.017607 & 6.289126 & 5.00 & 45.0635 \\
+4 & 0.208088 & 1.371044 & 4.142520 & 1.240571 & 4.00 & 8.2121 \\
+5 & -372.732798 & -283.084570 & -196.890480 & 56.532546 & 12.00 & 16.4673 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-\subsubsection*{ACOR (15\% reubicación para soluciones cercanas)}
-\textbf{Resumen global.} Rendimiento intermedio: mejor que Firefly en \textit{B3} (promedio menor) pero con costes más altos, y \textbf{muy sensible} en \textit{B5} (recupera lento). \\
-\textbf{B1:} Calidad similar a Firefly (Avg=4.64), variabilidad mayor (Std=0.32), recuperación algo mejor (Rec=4), coste parecido (21.4 s). \\
-\textbf{B2:} Excelente calidad ($\approx 0$) y buena adaptabilidad (Rec=2), pero \textbf{el más costoso} (229.8 s). \\
-\textbf{B3:} Mejora frente a Firefly (Avg=7.75 vs 10.80) aunque \textbf{aún inestable} (Std=6.29); adaptabilidad intermedia (Rec=5); tiempo similar (45.1 s). \\
-\textbf{B4:} Calidad moderada (Avg=1.37) con alta variabilidad (Std=1.24); recuperación intermedia (Rec=4); coste bajo (8.21 s). \\
-\textbf{B5:} Muy negativo en calidad (Avg=-283.08) con \textbf{gran dispersión} (Std=56.53) y \textbf{la peor recuperación del grupo} (Rec=12); coste bajo (16.47 s). \\
-\textbf{Lectura:} ACOR tiende a \textbf{sobre‐gastar tiempo} para alcanzar precisión en problemas “fáciles” (\textit{B2}) y su \textbf{debilidad principal} está en adaptabilidad ante cambios severos (\textit{B5}).
+Con base a lo mostrado en la tabla 2 del algoritmo ACOR se observa que en el benchmark 1, el algoritmo alcanzó un valor promedio mínimo previo al cambio de 4.322080, mientras que el promedio general fue de 4.636836 y el peor caso se situó en 4.936076. La desviación estándar fue baja (0.315635), lo que refleja un comportamiento estable y con poca dispersión entre las ejecuciones. La recuperación se logró en 4 iteraciones, lo que muestra una capacidad aceptable de adaptación.
+
+En el benchmark 2, los resultados fueron muy cercanos a cero, con un mejor valor de 0.000003 y un peor valor de 0.004291. Esto evidencia una gran precisión en la solución encontrada. La desviación estándar también fue pequeña (0.001482), confirmando la consistencia en los resultados. Además, la recuperación fue rápida, logrando estabilizarse en solo 2 iteraciones.
+
+Mientras que en el benchmark 3 el mejor valor alcanzado fue 0.615696, mientras que el peor se elevó hasta 16.017607, con un promedio de 7.753642. La desviación estándar fue alta (6.289126), lo que indica que el algoritmo presentó cambios relevantes en la calidad de las soluciones. La recuperación se completó en promedio en 5 iteraciones, mostrando una adaptación moderada.
+
+Durante el benchmark 4, un mejor valor fue de 0.208088 y un peor caso de 4.142520, mientras que el promedio se situó en 1.371044. La desviación estándar fue relativamente elevada (1.240571). La recuperación ocurrió en 4 iteraciones.
+
+Finalmente, en el benchmark 5, se registraron valores negativos, con un mejor caso de -372.732798 y un peor de -196.890480, mientras que el promedio fue de -283.084570. La dispersión de los resultados fue considerable, con una desviación estándar de 56.532546, lo que indica alta variabilidad, el algoritmo requirió 12 iteraciones para recuperarse, lo cual indica que la adaptación fue más lenta en este escenario en comparación con los otros benchmarks.
 
 
 % --- Genético Diploide ---
+\subsubsection*{Algoritmo Genético Diploide}
 \begin{table}[H]
 \centering
-\caption{Algoritmo Genético Diploide: resultados promedios por benchmark.}
-\label{tab:ga-diploide}
+\caption{Resultados del algoritmo Genético Diploide.}
+\label{tab:ga-diploid}
 \scriptsize
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{Algoritmo} & \textbf{Benchmark} & \textbf{Best} & \textbf{Avg} & \textbf{Worst} & \textbf{Std} & \textbf{Recov. Iter} & \textbf{Time (s)} \\
+\textbf{Benchmark} & \textbf{Avg Best Pre-Change} & \textbf{Avg Avg Pre-Change} & \textbf{Avg Worst Pre-Change} & \textbf{Avg Std Pre-Change} & \textbf{Avg Recovery Iter} & \textbf{Avg Time (s)} \\
 \midrule
-Gen. Diploide & 1 & 0.00 & 0.04 & 0.36 & 0.11 & 1 & 23.20 \\
-Gen. Diploide & 2 & 0.00 & 0.00 & 0.00 & 0.00 & 1 & 261.86 \\
-Gen. Diploide & 3 & 0.12 & 0.12 & 0.13 & 0.00 & 1 & 46.44 \\
-Gen. Diploide & 4 & 0.05 & 0.06 & 0.08 & 0.01 & 1 & 10.12 \\
-Gen. Diploide & 5 & -365.08 & -336.99 & -241.26 & 42.51 & 3 & 17.90 \\
+1 & 0.000000 & 0.035916 & 0.358191 & 0.113236 & 1.00 & 23.1954 \\
+2 & 0.000000 & 0.000002 & 0.000012 & 0.000005 & 1.00 & 261.8552 \\
+3 & 0.118543 & 0.120936 & 0.126520 & 0.003853 & 1.00 & 46.4383 \\
+4 & 0.049361 & 0.062799 & 0.075962 & 0.011708 & 1.00 & 10.1156 \\
+5 & -365.078117 & -336.985790 & -241.255015 & 42.507788 & 3.00 & 17.9002 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-\subsubsection*{Algoritmo Genético Diploide}
-\textbf{Resumen global.} \textbf{Mejor calidad y robustez} de los cuatro: promedios cercanos al óptimo y \textbf{desviaciones muy bajas}. Adaptabilidad \textbf{excelente} (Rec=1 en 4/5 benchmarks), pero con \textbf{coste elevado} en \textit{B2}. \\
-\textbf{B1:} Calidad casi óptima (Avg=0.036) y \textbf{baja variabilidad} (Std=0.113); recuperación inmediata (Rec=1); coste moderado (23.2 s). \\
-\textbf{B2:} Calidad perfecta ($\approx 0$), recuperación inmediata (Rec=1), pero \textbf{muy costoso} (261.9 s), el mayor tiempo de todos. \\
-\textbf{B3:} \textbf{Excelente} (Avg=0.121, Std=0.0039): prácticamente \textbf{determinista}; Rec=1; tiempo moderado (46.4 s). \\
-\textbf{B4:} Muy bueno (Avg=0.063, Std=0.012); Rec=1; coste bajo (10.1 s). \\
-\textbf{B5:} Calidad muy competitiva (Avg=-336.99) y mejor que ACOR/Firefly/PSO; variabilidad elevada (Std=42.51) y Rec=3; coste moderado (17.9 s). \\
-\textbf{Lectura:} Es la opción \textbf{más fiable} y \textbf{rápida en recuperarse} tras cambios. El precio a pagar es el \textbf{tiempo} en \textit{B2}. Ideal cuando se prioriza precisión/estabilidad sobre coste.
+Podemos observar que el algoritmo logra en el benchmark 1 un desempeño muy cercano al óptimo, alcanzando un valor mínimo promedio de 0.000000, con un promedio general de 0.035916 y un peor caso de 0.358191. La desviación estándar fue baja (0.113236), lo que indica estabilidad en los resultados. La recuperación se logró en solo 1 iteración, teniendo una gran capacidad de adaptación.
+
+Pero en el benchmark 2, los valores obtenidos fueron muy pequeños, con un mejor resultado de 0.000000, un promedio de 0.000002 y un peor caso de apenas 0.000012. La desviación estándar fue mínima (0.000005). El algoritmo recuperó su desempeño en una sola iteración.
+
+En el benchmark 3, se alcanzó un mejor valor de 0.118543, con un promedio muy cercano de 0.120936 y un peor resultado de 0.126520. La baja desviación estándar (0.003853) confirma la estabilidad del algoritmo en este escenario. Se volvio a dar una recuperación en una sola iteración, lo que subraya su rapidez de adaptación.
+
+Lo que sucede en el benchmark 4, se muestra en la tabla que el mejor caso fue de 0.049361, el promedio de 0.062799 y el peor de 0.075962. La desviación estándar fue de 0.011708, manteniéndose baja y mostrando un buen control de la variabilidad. La recuperación se efectuó en solo 1 iteración como ocurrio en los benchmarks pasados.
+
+Por último, en el benchmark 5, los valores fueron negativos, con un mejor desempeño de -365.078117 y un peor resultado de -241.255015, mientras que el promedio se dio en -336.985790. La desviación estándar fue considerablemente más alta (42.507788), mientras que la recuperación fue un poco más lenta en comparación con los demás casos, requiriendo 3 iteraciones.
+
 
 
 % --- PSO dividido ---
+\subsubsection*{PSO con división de población}
 \begin{table}[H]
 \centering
-\caption{PSO dividido (population split): resultados promedios por benchmark.}
+\caption{Resultados del algoritmo PSO con división de población.}
 \label{tab:pso-dividido}
 \scriptsize
-\resizebox{\columnwidth}{!}{%
-\begin{tabular}{lccccccc}
+\begin{tabular}{lcccccc}
 \toprule
-\textbf{Algoritmo} & \textbf{Benchmark} & \textbf{Best} & \textbf{Avg} & \textbf{Worst} & \textbf{Std} & \textbf{Recov. Iter} & \textbf{Time (s)} \\
+\textbf{Benchmark} & \textbf{Avg Best Pre-Change} & \textbf{Avg Avg Pre-Change} & \textbf{Avg Worst Pre-Change} & \textbf{Avg Std Pre-Change} & \textbf{Avg Recovery Iter} & \textbf{Avg Time (s)} \\
 \midrule
-PSO dividido & 1 & 5.94 & 7.39 & 10.01 & 1.28 & 3 & 20.98 \\
-PSO dividido & 2 & 0.00 & 0.01 & 0.07 & 0.02 & 4 & 203.13 \\
-PSO dividido & 3 & 3.45 & 11.69 & 18.89 & 5.93 & 8 & 44.62 \\
-PSO dividido & 4 & 0.68 & 2.35 & 5.22 & 1.39 & 4 & 8.37 \\
-PSO dividido & 5 & -325.05 & -231.30 & -152.20 & 54.13 & 7 & 16.34 \\
+1 & 5.943962 & 7.390896 & 10.005467 & 1.278012 & 3.00 & 20.9818 \\
+2 & 0.000070 & 0.014321 & 0.072558 & 0.023924 & 4.00 & 203.1267 \\
+3 & 3.451031 & 11.693936 & 18.890177 & 5.933817 & 8.00 & 44.6182 \\
+4 & 0.676358 & 2.349877 & 5.216153 & 1.387639 & 4.00 & 8.3659 \\
+5 & -325.050923 & -231.300190 & -152.200474 & 54.129551 & 7.00 & 16.3406 \\
 \bottomrule
-\end{tabular}}
+\end{tabular}
 \end{table}
 
-\subsubsection*{PSO con división de población}
-\textbf{Resumen global.} \textbf{El menos competitivo} en calidad media y robustez; adaptabilidad irregular (Rec alto en \textit{B3}, \textit{B5}); costes moderados salvo \textit{B2}. \\
-\textbf{B1:} Peor calidad (Avg=7.39) y variabilidad alta (Std=1.28); adaptabilidad intermedia (Rec=3); coste moderado (21.0 s). \\
-\textbf{B2:} Calidad aceptable ($\approx 0.014$) pero recuperación peor que Firefly/ACOR/GA (Rec=4); \textbf{coste alto} (203.1 s). \\
-\textbf{B3:} \textbf{Muy inestable} (Avg=11.69, Std=5.93) y lenta recuperación (Rec=8); tiempo similar a los demás (44.6 s). \\
-\textbf{B4:} Calidad moderada (Avg=2.35) con alta variabilidad (Std=1.39); Rec=4; coste bajo (8.37 s). \\
-\textbf{B5:} Calidad inferior al GA (Avg=-231.30) y \textbf{alta dispersión} (Std=54.13); recuperación lenta (Rec=7); coste bajo (16.34 s). \\
-\textbf{Lectura:} La división de población aporta diversidad, pero \textbf{no se traduce en robustez} post‐cambio ni en calidad media; requiere \textbf{mejoras de explotación} y mecanismos de recuperación.
+Con base a lo presentado en la tabla podemos observar como en el benchmark 1, el PSO dividido alcanzó valores relativamente altos, con un mejor desempeño de 5.943962 y un peor caso de 10.005467 con una desviación estándar de 1.278012 mientras que la adaptación fue rápida con 3 iteraciones.
 
+En el caso del benchmark 2, los valores obtenidos fueron más pequeños. El mejor caso se acercó a cero (0.000070), aunque la media (0.014321) y el peor caso (0.072558), reflejada en una desviación estándar de 0.023924, esto nos indica que el algoritmo no siempre produce soluciones consistentes en este escenario por otro lado la recuperación tomó 4 iteraciones.
+
+El benchmark 3 tenemos el mejor resultado de 3.451031, pero el promedio subió a 11.693936, y en el peor caso se llegó a 18.890177 por otro lado podemos observar que tenemos una desviación estándar alta (5.933817), lo que deja ver que el rendimiento varió entre ejecuciones, para este caso se requirio 8 iteraciones para la adaptación.
+
+En el benchmark 4, el mejor valor (0.676358) se mantuvo bajo, aunque el promedio (2.349877) y el peor resultado (5.216153) mientras que la variabilidad (1.387639) y la recuperación se completó en 4 iteraciones, manteniendo un nivel de adaptabilidad aceptable.
+
+Por ultimo en el benchmark 5 mostró valores negativos, teniendo el mejor caso en -325.050923, el promedio en -231.300190 y el peor en -152.200474, en este caso la recuperación fue más lenta que en los otros benchmarks con 7 iteraciones en promedio.
 
 \subsection*{Discusión Comparativa}
-En términos de \textbf{calidad y robustez}, el Algoritmo Genético Diploide domina al presentar los promedios más bajos y desviaciones estándar mínimas. Esto lo convierte en el método más preciso y estable. En comparación, ACOR y Firefly logran desempeños intermedios que dependen del benchmark, mientras que PSO dividido queda rezagado al mostrar soluciones de menor calidad y una mayor variabilidad en sus resultados.  
 
-Respecto a la \textbf{adaptabilidad}, el Algoritmo Genético Diploide vuelve a sobresalir, ya que en casi todos los casos logra recuperarse en una sola iteración. Le siguen ACOR y Firefly, con tiempos de recuperación intermedios, mientras que PSO dividido resulta claramente más lento en escenarios dinámicos como los benchmarks B3 y B5.  
+En términos de calidad, el Algoritmo Genético Diploide se posiciona como el más destacado ya que presenta valores promedio prácticamente en cero en varios benchmarks (por ejemplo, 0.000002 en el Benchmark 2 y 0.1209 en el Benchmark 3), lo que indica soluciones muy cercanas al óptimo. Cabe mencionar que sus mejores valores (Best) alcanzan el desempeño esperado, lo que significa que logra encontrar el óptimo en ciertos escenarios. Este resultado coincide con lo planteado por Nguyen et al. \cite{nguyen2012survey} y Weicker \cite{weicker2003performance}, quienes subrayan que la calidad debe evaluarse considerando tanto el mejor como el promedio y el peor desempeño para capturar una visión global en entornos dinámicos.
 
-En cuanto al \textbf{coste computacional}, el Genético Diploide muestra un punto débil, pues en el Benchmark 2 resulta considerablemente más costoso en términos de tiempo. ACOR también incrementa su coste en ciertos escenarios, mientras que Firefly y PSO suelen ser más eficientes, con tiempos de ejecución menores, salvo en el caso particular del Benchmark 2.
+Por otra parte, algoritmos como PSO con división de población presentan promedios significativamente más altos (7.39 en el Benchmark 1 y 11.69 en el Benchmark 3), reflejando soluciones de menor calidad; en cambio, Firefly y ACOR se sitúan en un punto intermedio, alcanzando resultados aceptables pero con mayor dispersión. Esto respalda lo señalado por Weicker \cite{weicker2003performance}, quien enfatiza que la calidad no puede analizarse de forma aislada, sino vinculada a la estabilidad y consistencia de los resultados.
 
-Por otro lado, de los algoritmos evaluados, el \textbf{PSO con división de población} mostró el peor desempeño general en términos de las métricas consideradas. En primer lugar, la \textbf{calidad de las soluciones} obtenidas fue inferior respecto a los demás algoritmos, ya que en múltiples benchmarks los valores promedio fueron considerablemente más altos. Esto refleja que, aunque la división de la población favorece la diversidad, el mecanismo de explotación no logra refinar adecuadamente las soluciones.
+Respecto a la adaptabilidad, se confirma la ventaja del Genético Diploide, ya que en casi todos los casos logra recuperarse en una sola iteración tras un cambio, evidenciando una población capaz de reaccionar de manera inmediata. Este hallazgo es coherente con Ahmed \cite{ahmed2024adaptive} y Nguyen et al. \cite{nguyen2013kd}, quienes remarcan que la capacidad de reajustarse rápidamente tras un cambio es esencial para mantener la competitividad en problemas dinámicos. Por contraste, Firefly y ACOR requieren entre 2 y 6 iteraciones y el PSO con división de población hasta 8, lo que indica una respuesta más lenta. Estos resultados coinciden con lo señalado por Weicker \cite{weicker2003performance}, quien advierte que ciertos mecanismos de diversidad pueden no garantizar una recuperación eficiente.
 
-En segundo lugar, la \textbf{robustez} del método resultó limitada. Las desviaciones estándar reportadas fueron elevadas, lo que indica una fuerte variabilidad entre ejecuciones. En consecuencia, el algoritmo se percibe como poco confiable, pues bajo las mismas condiciones iniciales puede producir resultados muy distintos.
-
-Otro aspecto crítico fue la \textbf{adaptabilidad}. El PSO dividido requirió más iteraciones de recuperación en escenarios dinámicos, especialmente en benchmarks donde los cambios eran más severos. En términos prácticos, esto significa que tarda demasiado en reajustarse después de un cambio, perdiendo competitividad frente a los demás métodos.
-
-Finalmente, en lo referente al \textbf{coste computacional}, aunque en algunos casos el tiempo de ejecución fue razonable, en problemas como el Benchmark 2 se registraron valores muy altos (más de 200 segundos), sin que ello se tradujera en una mejora en la calidad de las soluciones.
-
-En conclusión, el \textbf{PSO con división de población} fue el peor algoritmo en esta evaluación porque combina una baja calidad promedio con alta variabilidad, recuperación lenta y costes computacionales elevados, lo que lo hace menos competitivo frente a Firefly, ACOR y, en particular, el Algoritmo Genético Diploide.
+Tomando en cuenta calidad y adaptabilidad, el Algoritmo Genético Diploide es el más competitivo, ya que logra soluciones de alta calidad junto con una recuperación inmediata. En el extremo opuesto, PSO dividido resulta menos adecuado por su calidad deficiente y lenta capacidad de respuesta, mientras que Firefly y ACOR representan enfoques intermedios, con un balance aceptable aunque menos consistente.
 
 
 
-\subsection*{Conclusiones}
+\subsection*{Resultados Gráficos}
 
-Los Algoritmos Genéticos Diploides son superiores en \textbf{calidad, robustez y adaptabilidad}, aunque con un coste elevado. Firefly es balanceado, ACOR intermedio y PSO rápido pero menos confiable.
+A continuación, se presentan las representaciones gráficas que permiten visualizar de forma comparativa el desempeño de los algoritmos en términos de iteraciones de recuperación y valores de calidad pre-cambio.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/iteraciones.png}
+    \caption{Comparación de Iteraciones de Recuperación (Avg Recovery Iter) para todos los benchmarks.}
+    \label{fig:recuperacion}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/b1.png}
+    \caption{Comparación de Mejores Valores Pre-Cambio (Avg Best Pre-Change) en el Benchmark 1.}
+    \label{fig:b1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/b2.png}
+    \caption{Comparación de Mejores Valores Pre-Cambio (Avg Best Pre-Change) en el Benchmark 2 (valores muy pequeños).}
+    \label{fig:b2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/b3_y_b4.png}
+    \caption{Comparación de Mejores Valores Pre-Cambio en los Benchmarks 3 y 4.}
+    \label{fig:b3b4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/b5.png}
+    \caption{Comparación de Mejores Valores Pre-Cambio en el Benchmark 5 (valores negativos).}
+    \label{fig:b5}
+\end{figure}
+
+Las Figuras buscan ilustrar de manera clara las diferencias que se obtuvieron con base al desempeño entre los algoritmos. La Figura~\ref{fig:recuperacion} muestra que el \textbf{Genético Diploide} destaca en capacidad de adaptación al recuperarse con menor número de iteraciones en casi todos los benchmarks. Ahora hablando encuanto a calidad, las Figuras~\ref{fig:b1}--\ref{fig:b5} confirman que este algoritmo alcanza valores más cercanos al óptimo, especialmente en los Benchmarks 2, 3 y 4, donde supera consistentemente a los demás. Por contraste, el \textbf{PSO con división de población} presenta tanto mayor número de iteraciones de recuperación como peores valores de calidad en la mayoría de los casos.
+
+
+\begin{thebibliography}{99}
+
+\bibitem{ahmed2024adaptive}
+B.~S. Ahmed,
+\newblock ``An Adaptive Metaheuristic Framework for Changing Environments,''
+\newblock {\em arXiv preprint arXiv:2404.12185}, 2024.
+
+\bibitem{nguyen2012survey}
+T.~T. Nguyen, S.~Yang, and J.~Branke,
+\newblock ``Evolutionary dynamic optimization: A survey of the state of the art,''
+\newblock {\em Swarm and Evolutionary Computation}, vol.~6, pp.~1--24, 2012.
+
+\bibitem{weicker2003performance}
+K.~Weicker,
+\newblock ``Performance measures for dynamic environments,''
+\newblock in {\em Proc. Congress on Evolutionary Computation (CEC)}, pp. 824--831, IEEE, 2003.
+
+\bibitem{nguyen2013kd}
+T.~T. Nguyen, I.~Jenkinson, and S.~Yang,
+\newblock ``Solving dynamic optimisation problems by combining evolutionary algorithms with KD-Tree,''
+\newblock {\em LNCS}, 2013.
+
+\end{thebibliography}
 
 \end{document}
