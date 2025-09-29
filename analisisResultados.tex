@@ -8,18 +8,17 @@
 
 \section*{Análisis Comparativo de Algoritmos Evolutivos}
 
-En este apartado se presentan los resultados obtenidos al evaluar diferentes algoritmos (Firefly, ACOR, Algoritmo Genético Diploide y PSO con división de población) sobre un conjunto de benchmarks dinámicos. Los resultados se analizaron considerando calidad y adaptabilidad.
+En este apartado se presentan los resultados obtenidos al evaluar diferentes algoritmos (Firefly (30\% reubicación de población), ACOR (15\% reubicación de población para soluciones cercanas), Algoritmo Genético Diploide y PSO con división de población) sobre un conjunto de benchmarks dinámicos. Los resultados se analizaron considerando calidad y adaptabilidad.
 
 \subsection*{Métricas de Evaluación}
 
-El rendimiento de los algoritmos se midió a través de métricas clave como lo son \emph{calidad} y \emph{adaptabilidad}, seleccionadas por su relevancia en la comparación de algoritmos evolutivos en entornos dinámicos. Diversos autores coinciden en que estas métricas permiten analizar no sólo el desempeño estático, sino también la capacidad de recuperación ante cambios.
+El rendimiento de los algoritmos se midió a través de métricas clave como lo son \emph{calidad} y \emph{adaptabilidad}, seleccionadas por su relevancia en la comparación de algoritmos evolutivos en entornos dinámicos. Diversos autores coinciden en que estas métricas permiten analizar no sólo el desempeño estático, sino también la capacidad de recuperación ante cambios \cite{morrison2003performance}.
 
-\textbf{Calidad}: El desempeño se cuantificó mediante las métricas Avg Best Pre-Change, Avg Avg Pre-Change y Avg Worst Pre-Change, que representan respectivamente la mejor, promedio y peor solución encontrada antes de la modificación del entorno. En entornos dinámicos, la calidad es un indicador esencial para evaluar la robustez de un algoritmo, pues refleja su capacidad para mantenerse cercano al óptimo incluso frente a perturbaciones \cite{ahmed2024adaptive}. Además, la literatura en optimización evolutiva dinámica reconoce que las medidas de desempeño basadas en mejores, peores y promedios de fitness son criterios habituales de evaluación en benchmarks dinámicos \cite{nguyen2012survey,weicker2003performance}.
+\textbf{Calidad}: El desempeño se cuantificó mediante las métricas \textit{Avg Best Pre-Change}, \textit{Avg Avg Pre-Change} y \textit{Avg Worst Pre-Change}, que representan respectivamente la mejor, promedio y peor solución encontrada antes de la modificación del entorno. En entornos dinámicos, la calidad es un indicador esencial para evaluar la robustez de un algoritmo, pues refleja su capacidad para mantenerse cercano al óptimo incluso frente a perturbaciones \cite{ahmed2024adaptive,morrison2003performance}. Además, la literatura en optimización evolutiva dinámica reconoce que las medidas de desempeño basadas en mejores, peores y promedios de fitness son criterios habituales de evaluación en benchmarks dinámicos \cite{nguyen2012survey,weicker2003performance}.
 
-\textbf{Adaptabilidad}: La velocidad de adaptación se midió con la métrica Avg Recovery Iter, que indica el número promedio de iteraciones que tarda el algoritmo en recuperar un nivel competitivo de desempeño tras un cambio ambiental. Un valor bajo en esta métrica sugiere una alta capacidad de respuesta. En este sentido, Ahmed \cite{ahmed2024adaptive} propone un marco adaptativo basado en detección y reajuste dinámico, mientras que Nguyen et al. \cite{nguyen2013kd} y Weicker \cite{weicker2003performance} destacan que un algoritmo competitivo no sólo debe encontrar soluciones de calidad, sino también reaccionar rápidamente a los cambios en el entorno.
+\textbf{Adaptabilidad}: La velocidad de adaptación se midió con la métrica \textit{Avg Recovery Iter}, que indica el número promedio de iteraciones que tarda el algoritmo en recuperar un nivel competitivo de desempeño tras un cambio ambiental. Un valor bajo en esta métrica sugiere una alta capacidad de respuesta. En este sentido, Ahmed \cite{ahmed2024adaptive} propone un marco adaptativo basado en detección y reajuste dinámico, mientras que Nguyen et al. \cite{nguyen2013kd} y Weicker \cite{weicker2003performance} destacan que un algoritmo competitivo no sólo debe encontrar soluciones de calidad, sino también reaccionar rápidamente a los cambios en el entorno.
 
-Estas métricas combinadas permiten una evaluación integral del desempeño algorítmico: mientras que la calidad garantiza soluciones eficaces, la adaptabilidad mide la capacidad de respuesta frente al dinamismo del entorno, facilitando comparaciones más completas entre distintos enfoques evolutivos en problemas no estacionarios.
-
+Estas métricas combinadas permiten una evaluación integral del desempeño algorítmico: mientras que la calidad garantiza soluciones eficaces, la adaptabilidad mide la capacidad de respuesta frente al dinamismo del entorno, facilitando comparaciones más completas entre distintos enfoques evolutivos en problemas no estacionarios \cite{morrison2003performance}.
 
 \subsection*{Resultados}
 
@@ -45,7 +44,7 @@ A continuación se muestra un extracto de los resultados obtenidos para cada alg
 \end{tabular}
 \end{table}
 
-En el benchmark 1, el algoritmo FireFly mostró un mejor valor promedio previo al cambio de 4.326799 y un peor valor de 4.936076. La desviación estándar fue relativamente baja (0.303534) y el algoritmo necesitó 6 iteraciones para recuperarse tras los cambios en el entorno.
+En el benchmark 1, el algoritmo  (30\% reubicación de población) mostró un mejor valor promedio previo al cambio de 4.326799 y un peor valor de 4.936076. La desviación estándar fue relativamente baja (0.303534) y el algoritmo necesitó 6 iteraciones para recuperarse tras los cambios en el entorno.
 
 En el benchmark 2 alcanzó valores muy cercanos a cero en todas las métricas de calidad (con un mejor valor de 0.000020 y un peor valor de 0.008346). La recuperación fue rápida (2 iteraciones).
 
@@ -75,7 +74,7 @@ Por último, en el benchmark 5 se observaron valores negativos, con un mejor res
 \end{tabular}
 \end{table}
 
-Con base a lo mostrado en la tabla 2 del algoritmo ACOR se observa que en el benchmark 1, el algoritmo alcanzó un valor promedio mínimo previo al cambio de 4.322080, mientras que el promedio general fue de 4.636836 y el peor caso se situó en 4.936076. La desviación estándar fue baja (0.315635), lo que refleja un comportamiento estable y con poca dispersión entre las ejecuciones. La recuperación se logró en 4 iteraciones, lo que muestra una capacidad aceptable de adaptación.
+Con base a lo mostrado en la tabla 2 del algoritmo ACOR (15\% reubicación de población para soluciones cercanas) se observa que en el benchmark 1, el algoritmo alcanzó un valor promedio mínimo previo al cambio de 4.322080, mientras que el promedio general fue de 4.636836 y el peor caso se situó en 4.936076. La desviación estándar fue baja (0.315635), lo que refleja un comportamiento estable y con poca dispersión entre las ejecuciones. La recuperación se logró en 4 iteraciones, lo que muestra una capacidad aceptable de adaptación.
 
 En el benchmark 2, los resultados fueron muy cercanos a cero, con un mejor valor de 0.000003 y un peor valor de 0.004291. Esto evidencia una gran precisión en la solución encontrada. La desviación estándar también fue pequeña (0.001482), confirmando la consistencia en los resultados. Además, la recuperación fue rápida, logrando estabilizarse en solo 2 iteraciones.
 
@@ -138,7 +137,7 @@ Por último, en el benchmark 5, los valores fueron negativos, con un mejor desem
 \end{tabular}
 \end{table}
 
-Con base a lo presentado en la tabla podemos observar como en el benchmark 1, el PSO dividido alcanzó valores relativamente altos, con un mejor desempeño de 5.943962 y un peor caso de 10.005467 con una desviación estándar de 1.278012 mientras que la adaptación fue rápida con 3 iteraciones.
+Con base a lo presentado en la tabla podemos observar como en el benchmark 1, el PSO con división de población alcanzó valores relativamente altos, con un mejor desempeño de 5.943962 y un peor caso de 10.005467 con una desviación estándar de 1.278012 mientras que la adaptación fue rápida con 3 iteraciones.
 
 En el caso del benchmark 2, los valores obtenidos fueron más pequeños. El mejor caso se acercó a cero (0.000070), aunque la media (0.014321) y el peor caso (0.072558), reflejada en una desviación estándar de 0.023924, esto nos indica que el algoritmo no siempre produce soluciones consistentes en este escenario por otro lado la recuperación tomó 4 iteraciones.
 
@@ -152,17 +151,17 @@ Por ultimo en el benchmark 5 mostró valores negativos, teniendo el mejor caso e
 
 En términos de calidad, el Algoritmo Genético Diploide se posiciona como el más destacado ya que presenta valores promedio prácticamente en cero en varios benchmarks (por ejemplo, 0.000002 en el Benchmark 2 y 0.1209 en el Benchmark 3), lo que indica soluciones muy cercanas al óptimo. Cabe mencionar que sus mejores valores (Best) alcanzan el desempeño esperado, lo que significa que logra encontrar el óptimo en ciertos escenarios. Este resultado coincide con lo planteado por Nguyen et al. \cite{nguyen2012survey} y Weicker \cite{weicker2003performance}, quienes subrayan que la calidad debe evaluarse considerando tanto el mejor como el promedio y el peor desempeño para capturar una visión global en entornos dinámicos.
 
-Por otra parte, algoritmos como PSO con división de población presentan promedios significativamente más altos (7.39 en el Benchmark 1 y 11.69 en el Benchmark 3), reflejando soluciones de menor calidad; en cambio, Firefly y ACOR se sitúan en un punto intermedio, alcanzando resultados aceptables pero con mayor dispersión. Esto respalda lo señalado por Weicker \cite{weicker2003performance}, quien enfatiza que la calidad no puede analizarse de forma aislada, sino vinculada a la estabilidad y consistencia de los resultados.
+Por otra parte, algoritmos como PSO con división de población presentan promedios significativamente más altos (7.39 en el Benchmark 1 y 11.69 en el Benchmark 3), reflejando soluciones de menor calidad; en cambio, Firefly (30\% reubicación de población) y ACOR (15\% reubicación de población para soluciones cercanas) se sitúan en un punto intermedio, alcanzando resultados aceptables pero con mayor dispersión. Esto respalda lo señalado por Weicker \cite{weicker2003performance}, quien enfatiza que la calidad no puede analizarse de forma aislada, sino vinculada a la estabilidad y consistencia de los resultados.
 
-Respecto a la adaptabilidad, se confirma la ventaja del Genético Diploide, ya que en casi todos los casos logra recuperarse en una sola iteración tras un cambio, evidenciando una población capaz de reaccionar de manera inmediata. Este hallazgo es coherente con Ahmed \cite{ahmed2024adaptive} y Nguyen et al. \cite{nguyen2013kd}, quienes remarcan que la capacidad de reajustarse rápidamente tras un cambio es esencial para mantener la competitividad en problemas dinámicos. Por contraste, Firefly y ACOR requieren entre 2 y 6 iteraciones y el PSO con división de población hasta 8, lo que indica una respuesta más lenta. Estos resultados coinciden con lo señalado por Weicker \cite{weicker2003performance}, quien advierte que ciertos mecanismos de diversidad pueden no garantizar una recuperación eficiente.
+Respecto a la adaptabilidad, se confirma la ventaja del Genético Diploide, ya que en casi todos los casos logra recuperarse en una sola iteración tras un cambio, evidenciando una población capaz de reaccionar de manera inmediata. Este hallazgo es coherente con Ahmed \cite{ahmed2024adaptive} y Nguyen et al. \cite{nguyen2013kd}, quienes remarcan que la capacidad de reajustarse rápidamente tras un cambio es esencial para mantener la competitividad en problemas dinámicos. Por contraste, Firefly (30\% reubicación de población) y ACOR (15\% reubicación de población para soluciones cercanas) requieren entre 2 y 6 iteraciones y el PSO con división de población hasta 8, lo que indica una respuesta más lenta. Estos resultados coinciden con lo señalado por Weicker \cite{weicker2003performance}, quien advierte que ciertos mecanismos de diversidad pueden no garantizar una recuperación eficiente.
 
-Tomando en cuenta calidad y adaptabilidad, el Algoritmo Genético Diploide es el más competitivo, ya que logra soluciones de alta calidad junto con una recuperación inmediata. En el extremo opuesto, PSO dividido resulta menos adecuado por su calidad deficiente y lenta capacidad de respuesta, mientras que Firefly y ACOR representan enfoques intermedios, con un balance aceptable aunque menos consistente.
+Tomando en cuenta calidad y adaptabilidad, el Algoritmo Genético Diploide es el más competitivo, ya que logra soluciones de alta calidad junto con una recuperación inmediata. En el extremo opuesto, PSO con división de población resulta menos adecuado por su calidad deficiente y lenta capacidad de respuesta, mientras que Firefly (30\% reubicación de población) y ACOR (15\% reubicación de población para soluciones cercanas) representan enfoques intermedios, con un balance aceptable aunque menos consistente.
 
 
 
 \subsection*{Resultados Gráficos}
 
-A continuación, se presentan las representaciones gráficas que permiten visualizar de forma comparativa el desempeño de los algoritmos en términos de iteraciones de recuperación y valores de calidad pre-cambio.
+A continuación, se presentan algunas gráficas que nos permiten visualizar de forma comparativa el desempeño de los algoritmos en términos de iteraciones de recuperación y valores de calidad pre-cambio.
 
 \begin{figure}[H]
     \centering
@@ -199,7 +198,64 @@ A continuación, se presentan las representaciones gráficas que permiten visual
     \label{fig:b5}
 \end{figure}
 
-Las Figuras buscan ilustrar de manera clara las diferencias que se obtuvieron con base al desempeño entre los algoritmos. La Figura~\ref{fig:recuperacion} muestra que el \textbf{Genético Diploide} destaca en capacidad de adaptación al recuperarse con menor número de iteraciones en casi todos los benchmarks. Ahora hablando encuanto a calidad, las Figuras~\ref{fig:b1}--\ref{fig:b5} confirman que este algoritmo alcanza valores más cercanos al óptimo, especialmente en los Benchmarks 2, 3 y 4, donde supera consistentemente a los demás. Por contraste, el \textbf{PSO con división de población} presenta tanto mayor número de iteraciones de recuperación como peores valores de calidad en la mayoría de los casos.
+Las Figuras buscan ilustrar de manera clara las diferencias que se obtuvieron con base al desempeño entre los algoritmos. La Figura~\ref{fig:recuperacion} muestra que el \textbf{Genético Diploide} destaca en capacidad de adaptación al recuperarse con menor número de iteraciones en casi todos los benchmarks. Ahora hablando encuanto a calidad, las Figuras~\ref{fig:b1}--\ref{fig:b5} confirman que este algoritmo alcanza valores más cercanos al óptimo, especialmente en los Benchmarks 2, 3 y 4, donde supera consistentemente a los demás. Por otro lado, el \textbf{PSO con división de población} presenta tanto mayor número de iteraciones de recuperación como peores valores de calidad en la mayoría de los casos.
+
+\subsubsection*{Mapa de Calor de Iteraciones de Recuperación}
+
+En la Figura~\ref{fig:heatmap} se muestra un mapa de calor que muestra el número promedio de iteraciones necesarias para que cada algoritmo recupere un nivel competitivo de desempeño. Con base a esto podemos observar nuevamente que el Algoritmo Genético Diploide es el más consistente, logrando recuperarse en 1 iteración en casi todos los benchmarks. En el caso de los algoritmos Firefly y ACOR presentan un desempeño más irregular, alcanzando buenas recuperaciones en algunos casos (2–4 iteraciones) pero con valores altos en otros (hasta 9 y 12 iteraciones, respectivamente). El PSO con división de población se mantiene en un rango intermedio sin embargo en el Benchmark 3 y 5 podemos observar que se requiere 7–8 iteraciones basicamente nos da una respuesta más lenta.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{imagenes/mapaDeCalor.png}
+    \caption{Mapa de calor de las iteraciones de recuperación por algoritmo y benchmark (menor es mejor).}
+    \label{fig:heatmap}
+\end{figure}
+
+\subsubsection*{Curvas de Recuperación por Benchmark}
+
+A continuación se presentan algunas figuras~\ref{fig:curva1}–\ref{fig:curva5} que buscan mostrar la evolución del desempeño (fitness) de los algoritmos en las iteraciones posteriores a un cambio de forma gráfica con fines didácticos, de esta forma permitiendo analizar no sólo la rapidez de recuperación sino también la estabilidad del proceso.
+
+\textbf{Benchmark 1 (Figura~\ref{fig:curva1})}: El Genético Diploide logra estabilizarse de inmediato, mientras que Firefly y ACOR muestran recuperaciones graduales, necesitando entre 4 y 6 iteraciones. El PSO dividido logra recuperarse en 3 iteraciones, pero con un valor de calidad inferior.
+
+\textbf{Benchmark 2 (Figura~\ref{fig:curva2})}: Aquí podemos observar que todos los algoritmos alcanzan valores muy cercanos a cero, enfatizando que el Genético Diploide recupera en una sola iteración, mientras que Firefly y ACOR lo hacen en 2, y el PSO dividido en 4. 
+
+\textbf{Benchmark 3 (Figura~\ref{fig:curva3y4} izquierda)}: El Algoritmo Genético Diploide muestra un rendimiento superior al recuperarse en una sola iteración mientras que los algoritmos Firefly y ACOR tardan entre 5 y 7 iteraciones, por ultimo podemos mencionar que el algoritmo PSO dividido presenta la peor adaptación, pues requiere 8 iteraciones y obtiene valores de fitness menos favorables.
+
+\textbf{Benchmark 4 (Figura~\ref{fig:curva3y4} derecha)}: Con base a la figura podemos volver a confirmar el patrón de rendimiento que tiene el Genético Diploide liderando con una recuperación en una única iteración, en un segunda observación de esta figura podemos encontrar Firefly y ACOR (3-4 iteraciones), finalmente el PSO dividido iguala su velocidad de adaptación, lo hace con soluciones menos competitivas.
+
+\textbf{Benchmark 5 (Figura~\ref{fig:curva5})}: Este escenario es el más exigente, ya que todos los algoritmos manejan valores negativos de fitness pero incluso en ese tipo de escenarios podemos observar como como el Genético Diploide vuelve a destacar, recuperando en 3 iteraciones. Firefly y PSO dividido muestran recuperaciones lentas (7–9 iteraciones), mientras que ACOR es el menos eficiente, necesitando 12 iteraciones.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/curva1.png}
+    \caption{Curva de recuperación en el Benchmark 1.}
+    \label{fig:curva1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/curva2.png}
+    \caption{Curva de recuperación en el Benchmark 2 (escala logarítmica).}
+    \label{fig:curva2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{imagenes/curva 3 y 4.png}
+    \caption{Curvas de recuperación en los Benchmarks 3 (izquierda) y 4 (derecha).}
+    \label{fig:curva3y4}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{imagenes/curva5.png}
+    \caption{Curva de recuperación en el Benchmark 5.}
+    \label{fig:curva5}
+\end{figure}
+
+\subsubsection*{Síntesis del Análisis Visual}
+
+
 
 
 \begin{thebibliography}{99}
@@ -218,6 +274,11 @@ T.~T. Nguyen, S.~Yang, and J.~Branke,
 K.~Weicker,
 \newblock ``Performance measures for dynamic environments,''
 \newblock in {\em Proc. Congress on Evolutionary Computation (CEC)}, pp. 824--831, IEEE, 2003.
+
+\bibitem{morrison2003performance}
+R.~W. Morrison,
+\newblock ``Performance Measurement in Dynamic Environments,''
+\newblock in {\em Proc. Workshop on Evolutionary Algorithms for Dynamic Optimization Problems (EvoDOP-2003) at GECCO}, pp. 9--20, Springer, Chicago, 2003.
 
 \bibitem{nguyen2013kd}
 T.~T. Nguyen, I.~Jenkinson, and S.~Yang,

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.10)  27 SEP 2025 23:20
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.4.10)  28 SEP 2025 19:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -263,32 +263,32 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
  (/usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (101.81085pt too wide) in paragraph at lines 35--46
+Overfull \hbox (101.81085pt too wide) in paragraph at lines 34--45
  [][] 
  []
 
 
-Overfull \hbox (101.81085pt too wide) in paragraph at lines 65--76
+Overfull \hbox (101.81085pt too wide) in paragraph at lines 64--75
  [][] 
  []
 
 [1
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Overfull \hbox (101.81085pt too wide) in paragraph at lines 96--107
+Overfull \hbox (101.81085pt too wide) in paragraph at lines 95--106
  [][] 
  []
 
 [2]
-Overfull \hbox (101.81085pt too wide) in paragraph at lines 128--139
+Overfull \hbox (101.81085pt too wide) in paragraph at lines 127--138
  [][] 
  []
 
@@ -296,49 +296,77 @@ Overfull \hbox (101.81085pt too wide) in paragraph at lines 128--139
 <imagenes/iteraciones.png, id=18, 867.24pt x 578.16pt>
 File: imagenes/iteraciones.png Graphic file (type png)
 <use imagenes/iteraciones.png>
-Package pdftex.def Info: imagenes/iteraciones.png  used on input line 169.
+Package pdftex.def Info: imagenes/iteraciones.png  used on input line 168.
 (pdftex.def)             Requested size: 475.45825pt x 316.97444pt.
 <imagenes/b1.png, id=20, 722.7pt x 433.62pt>
 File: imagenes/b1.png Graphic file (type png)
 <use imagenes/b1.png>
-Package pdftex.def Info: imagenes/b1.png  used on input line 176.
+Package pdftex.def Info: imagenes/b1.png  used on input line 175.
 (pdftex.def)             Requested size: 400.38872pt x 240.23187pt.
  [4 <./imagenes/iteraciones.png>]
 <imagenes/b2.png, id=25, 722.7pt x 433.62pt>
 File: imagenes/b2.png Graphic file (type png)
 <use imagenes/b2.png>
-Package pdftex.def Info: imagenes/b2.png  used on input line 183.
+Package pdftex.def Info: imagenes/b2.png  used on input line 182.
 (pdftex.def)             Requested size: 400.38872pt x 240.23187pt.
 <imagenes/b3_y_b4.png, id=26, 1011.78pt x 433.62pt>
 File: imagenes/b3_y_b4.png Graphic file (type png)
 <use imagenes/b3_y_b4.png>
-Package pdftex.def Info: imagenes/b3_y_b4.png  used on input line 190.
+Package pdftex.def Info: imagenes/b3_y_b4.png  used on input line 189.
 (pdftex.def)             Requested size: 475.45825pt x 203.76834pt.
  [5 <./imagenes/b1.png> <./imagenes/b2.png>]
 <imagenes/b5.png, id=32, 722.7pt x 433.62pt>
 File: imagenes/b5.png Graphic file (type png)
 <use imagenes/b5.png>
-Package pdftex.def Info: imagenes/b5.png  used on input line 197.
+Package pdftex.def Info: imagenes/b5.png  used on input line 196.
 (pdftex.def)             Requested size: 400.38872pt x 240.23187pt.
- [6 <./imagenes/b3_y_b4.png> <./imagenes/b5.png>] [7] (latex/analisisResultados.aux)
+ [6 <./imagenes/b3_y_b4.png> <./imagenes/b5.png>]
+<imagenes/mapaDeCalor.png, id=38, 867.24pt x 578.16pt>
+File: imagenes/mapaDeCalor.png Graphic file (type png)
+<use imagenes/mapaDeCalor.png>
+Package pdftex.def Info: imagenes/mapaDeCalor.png  used on input line 209.
+(pdftex.def)             Requested size: 425.41444pt x 283.60965pt.
+<imagenes/curva1.png, id=39, 867.24pt x 578.16pt>
+File: imagenes/curva1.png Graphic file (type png)
+<use imagenes/curva1.png>
+Package pdftex.def Info: imagenes/curva1.png  used on input line 230.
+(pdftex.def)             Requested size: 400.38872pt x 266.92725pt.
+ [7 <./imagenes/mapaDeCalor.png>]
+<imagenes/curva2.png, id=45, 867.24pt x 578.16pt>
+File: imagenes/curva2.png Graphic file (type png)
+<use imagenes/curva2.png>
+Package pdftex.def Info: imagenes/curva2.png  used on input line 237.
+(pdftex.def)             Requested size: 400.38872pt x 266.92725pt.
+<imagenes/curva 3 y 4.png, id=46, 1156.32pt x 433.62pt>
+File: imagenes/curva 3 y 4.png Graphic file (type png)
+<use imagenes/curva 3 y 4.png>
+Package pdftex.def Info: imagenes/curva 3 y 4.png  used on input line 244.
+(pdftex.def)             Requested size: 475.45825pt x 178.29482pt.
+ [8 <./imagenes/curva1.png> <./imagenes/curva2.png>]
+<imagenes/curva5.png, id=52, 867.24pt x 578.16pt>
+File: imagenes/curva5.png Graphic file (type png)
+<use imagenes/curva5.png>
+Package pdftex.def Info: imagenes/curva5.png  used on input line 251.
+(pdftex.def)             Requested size: 400.38872pt x 266.92725pt.
+ [9 <./imagenes/curva 3 y 4.png> <./imagenes/curva5.png>] [10] (latex/analisisResultados.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 4709 strings out of 474116
- 76310 string characters out of 5743682
+ 4750 strings out of 474116
+ 77373 string characters out of 5743682
  1944187 words of memory out of 5000000
- 27043 multiletter control sequences out of 15000+600000
+ 27084 multiletter control sequences out of 15000+600000
  561534 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 57i,8n,65p,924b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 57i,8n,65p,1017b,309s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on latex/analisisResultados.pdf (7 pages, 250930 bytes).
+Output written on latex/analisisResultados.pdf (10 pages, 614900 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 37 compressed objects within 1 object stream
+ 88 PDF objects out of 1000 (max. 8388607)
+ 43 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 51 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1759036827.1768 "/Users/aldoescamillaresendiz/Desktop/Articulo_Algoritmos_/analisisResultados.tex" "latex/analisisResultados.pdf" "analisisResultados" 1759036827.88436 0
-  "/Users/aldoescamillaresendiz/Desktop/Articulo_Algoritmos_/analisisResultados.tex" 1759036826.18769 18111 6d83956f8fa8ef7a5f1ffe85655fe27e ""
+["pdflatex"] 1759108252.65061 "/Users/aldoescamillaresendiz/Desktop/Articulo_Algoritmos_/analisisResultados.tex" "latex/analisisResultados.pdf" "analisisResultados" 1759108253.70526 0
+  "/Users/aldoescamillaresendiz/Desktop/Articulo_Algoritmos_/analisisResultados.tex" 1759108251.15728 23193 92c937f381766f74e04f012146d58c02 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm" 1246382020 924 9904cf1d39e9767e7a3622f2a125a565 ""
@@ -52,13 +52,18 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1712769880.7575 5467645 128b85b7cde5f5edc5cb7f1dd7ff8736 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1712769853 8221419 e9707183ec6435af0f1bb4b83cdf10ff ""
   "/usr/local/texlive/2024/texmf.cnf" 1710266656 577 e590dabc9e28c5b61546e15f63eebcdf ""
-  "analisisResultados.tex" 1759036826.18769 18111 6d83956f8fa8ef7a5f1ffe85655fe27e ""
+  "analisisResultados.tex" 1759108251.15728 23193 92c937f381766f74e04f012146d58c02 ""
   "imagenes/b1.png" 1759035582.7665 26202 1f18112bb9d066c3ff2a4e4d8da86e21 ""
   "imagenes/b2.png" 1759035554.83004 32370 902d1107b024a26f240c92e7f92a2686 ""
   "imagenes/b3_y_b4.png" 1759035573.43055 44781 306a4b402c97a2085ff4b6acdd2fe884 ""
   "imagenes/b5.png" 1759035594.79192 32960 711de8ebd867acf99901a27e086bde62 ""
+  "imagenes/curva 3 y 4.png" 1759104902.10978 143268 dcf5928137213587269c8c0735235cf2 ""
+  "imagenes/curva1.png" 1759104876.32089 89419 008a39767fce8f0a66e3b77d6b7f84d4 ""
+  "imagenes/curva2.png" 1759104891.13944 93421 9a0fa6bcae5ba5da2a4ed52aadac0314 ""
+  "imagenes/curva5.png" 1759104911.26869 102203 add37833ad7408f7a0d1a03ef6e8c2b8 ""
   "imagenes/iteraciones.png" 1759035605.75287 43401 6501709b32d0a2be0efdaa5de2b3ee25 ""
-  "latex/analisisResultados.aux" 1759036827.84689 2524 bb3689487db1fb6ce98ecb73b6b25b70 "pdflatex"
+  "imagenes/mapaDeCalor.png" 1759104930.97311 48629 cccd547da54953c0840a8b54dc1371fd ""
+  "latex/analisisResultados.aux" 1759108253.66822 3675 80735ce2dbac69e68eeb0d34a141aeef "pdflatex"
   (generated)
   "latex/analisisResultados.aux"
   "latex/analisisResultados.log"
