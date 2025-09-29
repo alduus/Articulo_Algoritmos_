@@ -2,6 +2,7 @@
 \usepackage[margin=2cm]{geometry}
 \usepackage{amsmath,amssymb}
 \usepackage{float}
+\usepackage[numbers]{natbib}
 \usepackage{graphicx,booktabs,multirow,caption}
 \usepackage{stfloats} % o \usepackage{dblfloatfix}
 \begin{document}
@@ -198,11 +199,17 @@ A continuación, se presentan algunas gráficas que nos permiten visualizar de f
     \label{fig:b5}
 \end{figure}
 
-Las Figuras buscan ilustrar de manera clara las diferencias que se obtuvieron con base al desempeño entre los algoritmos. La Figura~\ref{fig:recuperacion} muestra que el \textbf{Genético Diploide} destaca en capacidad de adaptación al recuperarse con menor número de iteraciones en casi todos los benchmarks. Ahora hablando encuanto a calidad, las Figuras~\ref{fig:b1}--\ref{fig:b5} confirman que este algoritmo alcanza valores más cercanos al óptimo, especialmente en los Benchmarks 2, 3 y 4, donde supera consistentemente a los demás. Por otro lado, el \textbf{PSO con división de población} presenta tanto mayor número de iteraciones de recuperación como peores valores de calidad en la mayoría de los casos.
+Las Figuras buscan ilustrar de manera clara las diferencias que se obtuvieron con base al desempeño entre los algoritmos. La Figura muestra que el \textbf{Genético Diploide} destaca en capacidad de adaptación al recuperarse con menor número de iteraciones en casi todos los benchmarks. Ahora hablando encuanto a calidad, las Figuras~\ref{fig:b1}--\ref{fig:b5} confirman que este algoritmo alcanza valores más cercanos al óptimo, especialmente en los Benchmarks 2, 3 y 4, donde supera consistentemente a los demás. Por otro lado, el \textbf{PSO con división de población} presenta tanto mayor número de iteraciones de recuperación como peores valores de calidad en la mayoría de los casos.
 
 \subsubsection*{Mapa de Calor de Iteraciones de Recuperación}
 
-En la Figura~\ref{fig:heatmap} se muestra un mapa de calor que muestra el número promedio de iteraciones necesarias para que cada algoritmo recupere un nivel competitivo de desempeño. Con base a esto podemos observar nuevamente que el Algoritmo Genético Diploide es el más consistente, logrando recuperarse en 1 iteración en casi todos los benchmarks. En el caso de los algoritmos Firefly y ACOR presentan un desempeño más irregular, alcanzando buenas recuperaciones en algunos casos (2–4 iteraciones) pero con valores altos en otros (hasta 9 y 12 iteraciones, respectivamente). El PSO con división de población se mantiene en un rango intermedio sin embargo en el Benchmark 3 y 5 podemos observar que se requiere 7–8 iteraciones basicamente nos da una respuesta más lenta.
+Con el fin de sintetizar los resultados obtenidos de múltiples algoritmos frente a diversas instancias en entornos dinámicos, se emplearon \textbf{mapas de calor} (heatmaps) construidos a partir de rangos y métricas normalizadas. 
+
+Este tipo de visualización permite \textit{condensar} en un espacio reducido estructuras bidimensionales (filas = algoritmos, columnas = instancias), haciendo visibles de un vistazo \textbf{patrones globales}, subestructuras y contrastes sistemáticos que resultan difíciles de percibir en tablas numéricas extensas \citep{wilkinson2009clusterheatmap}. 
+
+Asimismo, al trabajar con rangos por instancia (donde 1 indica el mejor desempeño), los mapas de calor facilitan la identificación inmediata de \textit{qué métodos destacan o decaen} en distintos escenarios, ofreciendo un \textbf{panorama amplio} y coherente con las prácticas modernas de comparación de algoritmos. En paralelo, se utilizaron \textbf{perfiles de rendimiento} \citep{dolan2002performanceprofiles}, que complementan la visualización al resaltar la eficiencia temporal y la robustez agregada de los métodos. 
+
+En conjunto, la combinación de estas herramientas proporciona una narrativa visual clara: los mapas de calor ofrecen la visión global y permiten localizar patrones específicos, mientras que los perfiles de rendimiento validan la comparación agregada a nivel de distribución. La Figura~\ref{fig:heatmap} presenta el número promedio de iteraciones necesarias para que cada algoritmo recupere un nivel competitivo de desempeño. A partir de ella se observa que el \textbf{Algoritmo Genético Diploide} es el más consistente, logrando recuperarse en una sola iteración en casi todos los benchmarks. En contraste, los algoritmos \textbf{Firefly} y \textbf{ACOR} exhiben un desempeño más irregular: alcanzan buenas recuperaciones en algunos casos (2--4 iteraciones), pero también valores altos en otros (hasta 9 y 12 iteraciones, respectivamente). Por su parte, el \textbf{PSO con división de población} se mantiene en un rango intermedio, aunque en los Benchmarks 3 y 5 requiere entre 7 y 8 iteraciones, lo que refleja una respuesta más lenta.
 
 \begin{figure}[H]
     \centering
@@ -211,79 +218,44 @@ En la Figura~\ref{fig:heatmap} se muestra un mapa de calor que muestra el númer
     \label{fig:heatmap}
 \end{figure}
 
-\subsubsection*{Curvas de Recuperación por Benchmark}
-
-A continuación se presentan algunas figuras~\ref{fig:curva1}–\ref{fig:curva5} que buscan mostrar la evolución del desempeño (fitness) de los algoritmos en las iteraciones posteriores a un cambio de forma gráfica con fines didácticos, de esta forma permitiendo analizar no sólo la rapidez de recuperación sino también la estabilidad del proceso.
-
-\textbf{Benchmark 1 (Figura~\ref{fig:curva1})}: El Genético Diploide logra estabilizarse de inmediato, mientras que Firefly y ACOR muestran recuperaciones graduales, necesitando entre 4 y 6 iteraciones. El PSO dividido logra recuperarse en 3 iteraciones, pero con un valor de calidad inferior.
-
-\textbf{Benchmark 2 (Figura~\ref{fig:curva2})}: Aquí podemos observar que todos los algoritmos alcanzan valores muy cercanos a cero, enfatizando que el Genético Diploide recupera en una sola iteración, mientras que Firefly y ACOR lo hacen en 2, y el PSO dividido en 4. 
-
-\textbf{Benchmark 3 (Figura~\ref{fig:curva3y4} izquierda)}: El Algoritmo Genético Diploide muestra un rendimiento superior al recuperarse en una sola iteración mientras que los algoritmos Firefly y ACOR tardan entre 5 y 7 iteraciones, por ultimo podemos mencionar que el algoritmo PSO dividido presenta la peor adaptación, pues requiere 8 iteraciones y obtiene valores de fitness menos favorables.
-
-\textbf{Benchmark 4 (Figura~\ref{fig:curva3y4} derecha)}: Con base a la figura podemos volver a confirmar el patrón de rendimiento que tiene el Genético Diploide liderando con una recuperación en una única iteración, en un segunda observación de esta figura podemos encontrar Firefly y ACOR (3-4 iteraciones), finalmente el PSO dividido iguala su velocidad de adaptación, lo hace con soluciones menos competitivas.
-
-\textbf{Benchmark 5 (Figura~\ref{fig:curva5})}: Este escenario es el más exigente, ya que todos los algoritmos manejan valores negativos de fitness pero incluso en ese tipo de escenarios podemos observar como como el Genético Diploide vuelve a destacar, recuperando en 3 iteraciones. Firefly y PSO dividido muestran recuperaciones lentas (7–9 iteraciones), mientras que ACOR es el menos eficiente, necesitando 12 iteraciones.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/curva1.png}
-    \caption{Curva de recuperación en el Benchmark 1.}
-    \label{fig:curva1}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/curva2.png}
-    \caption{Curva de recuperación en el Benchmark 2 (escala logarítmica).}
-    \label{fig:curva2}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.95\textwidth]{imagenes/curva 3 y 4.png}
-    \caption{Curvas de recuperación en los Benchmarks 3 (izquierda) y 4 (derecha).}
-    \label{fig:curva3y4}
-\end{figure}
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.8\textwidth]{imagenes/curva5.png}
-    \caption{Curva de recuperación en el Benchmark 5.}
-    \label{fig:curva5}
-\end{figure}
-
-\subsubsection*{Síntesis del Análisis Visual}
-
-
 
 
 \begin{thebibliography}{99}
 
 \bibitem{ahmed2024adaptive}
 B.~S. Ahmed,
-\newblock ``An Adaptive Metaheuristic Framework for Changing Environments,''
-\newblock {\em arXiv preprint arXiv:2404.12185}, 2024.
+``An adaptive metaheuristic framework for changing environments,''
+\emph{arXiv preprint arXiv:2404.12185}, 2024.
 
 \bibitem{nguyen2012survey}
 T.~T. Nguyen, S.~Yang, and J.~Branke,
-\newblock ``Evolutionary dynamic optimization: A survey of the state of the art,''
-\newblock {\em Swarm and Evolutionary Computation}, vol.~6, pp.~1--24, 2012.
+``Evolutionary dynamic optimization: A survey of the state of the art,''
+\emph{Swarm and Evolutionary Computation}, vol.~6, pp.~1--24, 2012.
 
 \bibitem{weicker2003performance}
 K.~Weicker,
-\newblock ``Performance measures for dynamic environments,''
-\newblock in {\em Proc. Congress on Evolutionary Computation (CEC)}, pp. 824--831, IEEE, 2003.
+``Performance measures for dynamic environments,''
+in \emph{Proceedings of the Congress on Evolutionary Computation (CEC)}, pp.~824--831, IEEE, 2003.
 
 \bibitem{morrison2003performance}
 R.~W. Morrison,
-\newblock ``Performance Measurement in Dynamic Environments,''
-\newblock in {\em Proc. Workshop on Evolutionary Algorithms for Dynamic Optimization Problems (EvoDOP-2003) at GECCO}, pp. 9--20, Springer, Chicago, 2003.
+``Performance measurement in dynamic environments,''
+in \emph{Proceedings of the Workshop on Evolutionary Algorithms for Dynamic Optimization Problems (EvoDOP-2003) at GECCO}, pp.~9--20, Springer, 2003.
 
 \bibitem{nguyen2013kd}
 T.~T. Nguyen, I.~Jenkinson, and S.~Yang,
-\newblock ``Solving dynamic optimisation problems by combining evolutionary algorithms with KD-Tree,''
-\newblock {\em LNCS}, 2013.
+``Solving dynamic optimisation problems by combining evolutionary algorithms with KD-Tree,''
+in \emph{Lecture Notes in Computer Science (LNCS)}, Springer, 2013.
+
+\bibitem{wilkinson2009clusterheatmap}
+L.~Wilkinson and M.~Friendly,
+``The history of the cluster heat map,''
+\emph{The American Statistician}, vol.~63, no.~2, pp.~179--184, 2009.
+
+\bibitem{dolan2002performanceprofiles}
+E.~D. Dolan and J.~J. Mor{\'e},
+``Benchmarking optimization software with performance profiles,''
+\emph{Mathematical Programming}, vol.~91, no.~2, pp.~201--213, 2002.
 
 \end{thebibliography}
 

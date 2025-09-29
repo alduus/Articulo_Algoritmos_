@@ -33,6 +33,8 @@ INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/float/float.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
+INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/natbib/natbib.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphicx.sty
 INPUT /usr/local/texlive/2024/texmf-dist/tex/latex/graphics/graphics.sty
@@ -121,26 +123,6 @@ INPUT ./imagenes/mapaDeCalor.png
 INPUT ./imagenes/mapaDeCalor.png
 INPUT ./imagenes/mapaDeCalor.png
 INPUT ./imagenes/mapaDeCalor.png
-INPUT ./imagenes/curva1.png
-INPUT ./imagenes/curva1.png
-INPUT ./imagenes/curva1.png
-INPUT ./imagenes/curva1.png
-INPUT ./imagenes/curva1.png
-INPUT ./imagenes/curva2.png
-INPUT ./imagenes/curva2.png
-INPUT ./imagenes/curva2.png
-INPUT ./imagenes/curva2.png
-INPUT ./imagenes/curva2.png
-INPUT ./imagenes/curva 3 y 4.png
-INPUT ./imagenes/curva 3 y 4.png
-INPUT ./imagenes/curva 3 y 4.png
-INPUT ./imagenes/curva 3 y 4.png
-INPUT ./imagenes/curva 3 y 4.png
-INPUT ./imagenes/curva5.png
-INPUT ./imagenes/curva5.png
-INPUT ./imagenes/curva5.png
-INPUT ./imagenes/curva5.png
-INPUT ./imagenes/curva5.png
 INPUT latex/analisisResultados.aux
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 INPUT /usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
